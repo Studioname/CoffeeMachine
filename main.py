@@ -75,22 +75,25 @@ def remove_ingredients(choice):
     dispense_cup()
     print("Ingredients being turned into coffee")
 
-def insert_coins(choice):
-    print(f"Please insert ${MENU[choice]['cost']} in coins." )
+def insert_coins(drink):
+    print(f"Please insert ${MENU[drink]['cost']} in coins." )
     sum = 0
     for coin in coins:
-        coins_added = int(input(f"How many {coin}s would you like to add?\n"))
+        coins_added = input(f"How many {coin}s would you like to add?\n")
+        while coins_added.isnumeric() == False:
+            coins_added = input(f"How many {coin}s would you like to add?\n")
+        coins_added = int(coins_added)
         to_add = coins_added * coins[coin]
         global hopper
         hopper += to_add
         sum += to_add
-    if sum > MENU[choice]['cost']:
-        change = sum - MENU[choice]['cost']
+    if sum > MENU[drink]['cost']:
+        change = sum - MENU[drink]['cost']
         print(f"Too much given. Returning {round(change, 2)} in change")
         hopper -= change
         sum = 0
         return True
-    elif sum < MENU[choice]['cost']:
+    elif sum < MENU[drink]['cost']:
         print(f"Not enough given. Returning coins.")
         hopper -= sum
         sum = 0
