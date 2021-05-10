@@ -105,7 +105,7 @@ def serve_drink(drink):
 
 def coffee_machine():
     choice = choose_drink()
-    if choice != "report" and choice != "off":
+    if choice in MENU:
         if check_ingredients(choice) == True:
             if insert_coins(choice):
                 remove_ingredients(choice)
