@@ -86,7 +86,7 @@ def insert_coins(choice):
         sum += to_add
     if sum > MENU[choice]['cost']:
         change = sum - MENU[choice]['cost']
-        print(f"Too much given. Returning {change} in change")
+        print(f"Too much given. Returning {round(change, 2)} in change")
         hopper -= change
         sum = 0
         return True
