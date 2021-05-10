@@ -62,7 +62,7 @@ def check_ingredients(choice):
         sufficient_ingredients = True
         if MENU[choice]["ingredients"][ingredient] > resources[ingredient]:
             sufficient_ingredients = False
-            print(f"Sorry! Not enough {[ingredient]} to make a {choice}")
+            print(f"Sorry! Not enough {ingredient} to make a {choice}")
             return sufficient_ingredients
         return True
 
