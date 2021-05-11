@@ -37,7 +37,9 @@ coins = {
     "cent" : 0.01
     }
 
+
 hopper = 0
+
 
 def report():
     for ingredient in resources:
@@ -66,14 +68,17 @@ def check_ingredients(choice):
             return sufficient_ingredients
         return True
 
+
 def dispense_cup():
     print("Cup dispensed.")
+
 
 def remove_ingredients(choice):
     for ingredient in MENU[choice]["ingredients"]:
         resources[ingredient] -= MENU[choice]["ingredients"][ingredient]
     dispense_cup()
     print("Ingredients being turned into coffee")
+
 
 def insert_coins(drink):
     print(f"Please insert ${MENU[drink]['cost']} in coins." )
@@ -102,6 +107,7 @@ def insert_coins(drink):
         print("Correct change given. Thank you for your order!")
         return True
 
+
 def serve_drink(drink):
     print(f"Here is your {drink}! Enjoy")
 
@@ -122,7 +128,9 @@ def coffee_machine():
     else:
         coffee_machine()
 
+
 coffee_machine()
+
 
 # b. The prompt should show every time action has completed, e.g. once the drink is
 # dispensed. The prompt should show again to serve the next customer.
